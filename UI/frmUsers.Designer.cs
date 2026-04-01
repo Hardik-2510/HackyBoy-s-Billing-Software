@@ -40,7 +40,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 52);
+            panel1.Size = new Size(842, 52);
             panel1.TabIndex = 0;
             // 
             // lblTop
@@ -58,10 +58,11 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(842, 581);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmUsers";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
