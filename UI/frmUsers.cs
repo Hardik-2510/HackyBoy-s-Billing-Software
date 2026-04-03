@@ -14,5 +14,20 @@ namespace Billing_Software.UI
         {
             InitializeComponent();
         }
+
+        private void pictureBoxClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmUsers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
