@@ -109,9 +109,8 @@
             lblLoggedInUser.ForeColor = Color.LimeGreen;
             lblLoggedInUser.Location = new Point(94, 58);
             lblLoggedInUser.Name = "lblLoggedInUser";
-            lblLoggedInUser.Size = new Size(110, 28);
+            lblLoggedInUser.Size = new Size(0, 28);
             lblLoggedInUser.TabIndex = 9;
-            lblLoggedInUser.Text = "HackyBoy";
             // 
             // lblUser
             // 
@@ -163,6 +162,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "User Dashboard";
             WindowState = FormWindowState.Maximized;
+            FormClosed += frmUserDashboard_FormClosed;
+            Load += frmUserDashboard_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnlFooter.ResumeLayout(false);

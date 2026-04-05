@@ -297,6 +297,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(740, 35);
             txtSearch.TabIndex = 24;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblSearch
             // 
@@ -332,6 +333,7 @@
             btnUpdate.TabIndex = 26;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
@@ -345,6 +347,7 @@
             btnDelete.TabIndex = 27;
             btnDelete.Text = "DELETE";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // frmUsers
             // 

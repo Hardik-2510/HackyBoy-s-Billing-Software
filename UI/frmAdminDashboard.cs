@@ -14,5 +14,16 @@ namespace Billing_Software
             frmUsers user = new frmUsers();
             user.Show();
         }
+
+        private void frmAdminDashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.Show();
+        }
+
+        private void frmAdminDashboard_Load(object sender, EventArgs e)
+        {
+            lblLoggedInUser.Text = frmLogin.LoggedIn;
+        }
     }
 }

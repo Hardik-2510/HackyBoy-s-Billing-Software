@@ -27,6 +27,8 @@ namespace Billing_Software.UI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            
+
             u.first_name = txtFirstName.Text;
             u.last_name = txtLastName.Text;
             u.email = txtEmail.Text;
@@ -37,7 +39,11 @@ namespace Billing_Software.UI
             u.username = txtUsername.Text;
             u.user_type = cmbUserType.Text;
             u.added_date = DateTime.Now;
-            u.added_by = 1;
+
+            string loggedUser = frmLogin.LoggedIn;
+            userBLL usr = dal.GetIDFromUsername(loggedUser);
+
+            u.added_by = usr.id;
 
             bool success = dal.Insert(u);
 
@@ -77,7 +83,83 @@ namespace Billing_Software.UI
 
         private void dgvUsers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            int rowIndex = e.RowIndex;
+            txtUserID.Text = dgvUsers.Rows[rowIndex].Cells[0].Value.ToString();
+            txtFirstName.Text = dgvUsers.Rows[rowIndex].Cells[1].Value.ToString();
+            txtLastName.Text = dgvUsers.Rows[rowIndex].Cells[2].Value.ToString();
+            txtEmail.Text = dgvUsers.Rows[rowIndex].Cells[3].Value.ToString();
+            txtUsername.Text = dgvUsers.Rows[rowIndex].Cells[4].Value.ToString();
+            txtPassword.Text = dgvUsers.Rows[rowIndex].Cells[5].Value.ToString();
+            txtContact.Text = dgvUsers.Rows[rowIndex].Cells[6].Value.ToString();
+            txtAddress.Text = dgvUsers.Rows[rowIndex].Cells[7].Value.ToString();
+            cmbGender.Text = dgvUsers.Rows[rowIndex].Cells[8].Value.ToString();
+            cmbUserType.Text = dgvUsers.Rows[rowIndex].Cells[9].Value.ToString();
+        }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            u.id = Convert.ToInt32(txtUserID.Text);
+            u.first_name = txtFirstName.Text;
+            u.last_name = txtLastName.Text;
+            u.email = txtEmail.Text;
+            u.password = txtPassword.Text;
+            u.address = txtAddress.Text;
+            u.contact = txtContact.Text;
+            u.username = txtUsername.Text;
+            u.gender = cmbGender.Text;
+            u.user_type = cmbUserType.Text;
+            u.added_date = DateTime.Now;
+            u.added_by = 1;
+
+            bool success = dal.Update(u);
+
+            if (success == true)
+            {
+                MessageBox.Show("User Successfully Updated");
+                clear();
+            }
+            else
+            {
+                MessageBox.Show("Failed to Update User");
+            }
+
+            DataTable dt = dal.Select();
+            dgvUsers.DataSource = dt;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            u.id = Convert.ToInt32(txtUserID.Text);
+            bool success = dal.Delete(u);
+
+            if (success == true)
+            {
+                MessageBox.Show("User Removed Successfully !!");
+                clear();
+            }
+            else
+            {
+                MessageBox.Show("Failed to Remove User");
+            }
+
+            DataTable dt = dal.Select();
+            dgvUsers.DataSource = dt;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keywords = txtSearch.Text;
+
+            if(keywords != null)
+            {
+                DataTable dt = dal.Search(keywords);
+                dgvUsers.DataSource = dt;
+            }
+            else
+            {
+                DataTable dt = dal.Select();
+                dgvUsers.DataSource = dt;
+            }
         }
     }
 }

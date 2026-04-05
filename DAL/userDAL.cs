@@ -107,6 +107,7 @@ namespace Billing_Software.DAL
                 string sql = "UPDATE tbl_users SET first_name=@first_name , last_name=@last_name , email=@email , username=@username , password=@password , contact=@contact , address=@address , gender=@gender , user_type=@user_type , added_date=@added_date , added_by=@added_by WHERE id=@id";
                 SqlCommand cmd = new SqlCommand(sql,conn);
 
+                cmd.Parameters.AddWithValue("@id", u.id);
                 cmd.Parameters.AddWithValue("@first_name", u.first_name);
                 cmd.Parameters.AddWithValue("@last_name", u.last_name);
                 cmd.Parameters.AddWithValue("@email", u.email);
@@ -118,7 +119,6 @@ namespace Billing_Software.DAL
                 cmd.Parameters.AddWithValue("@user_type", u.user_type);
                 cmd.Parameters.AddWithValue("@added_date", u.added_date);
                 cmd.Parameters.AddWithValue("@added_by", u.added_by);
-                cmd.Parameters.AddWithValue("@user_id", u.id);
 
                 conn.Open();
 
@@ -186,5 +186,68 @@ namespace Billing_Software.DAL
         }
 
         #endregion
+
+        #region Search User in Database using Keyword
+
+        public DataTable Search(string keywords)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            DataTable dt = new DataTable();
+
+            try
+            {
+                String sql = "SELECT * FROM tbl_users WHERE id LIKE '%" + keywords +"%' OR first_name LIKE '%" + keywords + "%'  OR username LIKE '%" + keywords + "%' OR last_name LIKE '%" + keywords + "%' ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
+
+        #endregion
+
+        #region Get User ID from Username
+
+        public userBLL GetIDFromUsername(string username)
+        {
+            userBLL u = new userBLL();
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+            try
+            {
+                String sql = "SELECT id FROM tbl_users WHERE username='" + username + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+                if(dt.Rows.Count > 0)
+                {
+                    u.id = int.Parse(dt.Rows[0]["id"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return u;
+        }
+
+        #endregion
+
     }
 }
