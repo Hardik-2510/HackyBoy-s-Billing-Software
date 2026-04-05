@@ -173,7 +173,6 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(249, 35);
             txtPassword.TabIndex = 11;
-            txtPassword.TextChanged += textBox1_TextChanged;
             // 
             // lblPassword
             // 
@@ -289,6 +288,7 @@
             dgvUsers.RowHeadersWidth = 62;
             dgvUsers.Size = new Size(837, 618);
             dgvUsers.TabIndex = 22;
+            dgvUsers.RowHeaderMouseClick += dgvUsers_RowHeaderMouseClick;
             // 
             // txtSearch
             // 
@@ -319,6 +319,7 @@
             btnAdd.TabIndex = 25;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnUpdate
             // 

@@ -16,7 +16,7 @@ namespace Billing_Software.DAL
 
         #region Select Data from Database
 
-        public DataTable select()
+        public DataTable Select()
         {
             SqlConnection conn = new SqlConnection(myconnstrng);
 
@@ -53,7 +53,7 @@ namespace Billing_Software.DAL
 
             try 
             {
-                string sql = "INSERT INTO tbl_users (first_name , last_name , email , username , password , contact , address , gender , user_type , added_date , added_by ) VALUES (@first_name , @last_name , @email , @username , @password , @contact , @address , @gender , @user_type , @added_date , @added_by )";
+                string sql = "INSERT INTO tbl_Users (first_name , last_name , email , username , password , contact , address , gender , user_type , added_date , added_by ) VALUES (@first_name , @last_name , @email , @username , @password , @contact , @address , @gender , @user_type , @added_date , @added_by )";
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@first_name", u.first_name);
