@@ -25,5 +25,11 @@ namespace Billing_Software
         {
             lblLoggedInUser.Text = frmLogin.LoggedIn;
         }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategories category = new frmCategories();
+            category.Show();
+        }
     }
 }
