@@ -1,5 +1,6 @@
 ﻿using Billing_Software.BLL;
 using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -168,6 +169,37 @@ namespace Billing_Software.DAL
             }
 
             return isSuccess;
+        }
+
+        #endregion
+
+        #region Search Funcationality
+
+        public DataTable Search(string keyword)
+        {
+            SqlConnection conn = new SqlConnection(myconnstrng);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                String sql = "SELECT * FROM tbl_categories WHERE id like '%" + keyword + "%' OR title like '%" + keyword + "%' OR description like '%" + keyword + "%'  ";
+                SqlCommand cmd = new SqlCommand(sql , conn);
+                SqlDataAdapter adpater = new SqlDataAdapter(cmd);
+                conn.Open();
+
+                adpater.Fill(dt);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
         }
 
         #endregion

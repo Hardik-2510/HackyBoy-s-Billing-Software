@@ -93,14 +93,7 @@ namespace Billing_Software.UI
             dgvCategories.DataSource = dt;
         }
 
-        private void dgvCategories_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int RowIndex = e.RowIndex;
-            txtCategoryID.Text = dgvCategories.Rows[RowIndex].Cells[0].Value.ToString();
-            txtTitle.Text = dgvCategories.Rows[RowIndex].Cells[1].Value.ToString();
-            txtDescription.Text = dgvCategories.Rows[RowIndex].Cells[2].Value.ToString();
 
-        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -112,12 +105,36 @@ namespace Billing_Software.UI
                 MessageBox.Show("Category Removed Successfully !!");
                 clear();
                 DataTable dt = dal.Select();
-                dgvCategories.DataSource= dt;
+                dgvCategories.DataSource = dt;
             }
             else
             {
                 MessageBox.Show("Category Not Removed !!");
                 clear();
+            }
+        }
+
+        private void dgvCategories_RowHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int RowIndex = e.RowIndex;
+            txtCategoryID.Text = dgvCategories.Rows[RowIndex].Cells[0].Value.ToString();
+            txtTitle.Text = dgvCategories.Rows[RowIndex].Cells[1].Value.ToString();
+            txtDescription.Text = dgvCategories.Rows[RowIndex].Cells[2].Value.ToString();
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text;
+            if(keyword != null)
+            {
+                DataTable dt = dal.Search(keyword);
+                dgvCategories.DataSource= dt;
+            }
+            else
+            {
+                DataTable dt = dal.Select();
+                dgvCategories.DataSource = dt;
             }
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             pictureBoxClose = new PictureBox();
             lblTop = new Label();
@@ -40,9 +41,9 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
-            dgvCategories = new DataGridView();
             txtSearch = new TextBox();
             lblSearch = new Label();
+            dgvCategories = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCategories).BeginInit();
@@ -180,16 +181,6 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
-            // dgvCategories
-            // 
-            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCategories.Location = new Point(492, 179);
-            dgvCategories.Name = "dgvCategories";
-            dgvCategories.RowHeadersWidth = 62;
-            dgvCategories.Size = new Size(666, 288);
-            dgvCategories.TabIndex = 31;
-            dgvCategories.RowHeaderMouseClick += dgvCategories_RowHeaderMouseClick;
-            // 
             // txtSearch
             // 
             txtSearch.Font = new Font("Franklin Gothic Medium Cond", 12F);
@@ -197,6 +188,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(585, 35);
             txtSearch.TabIndex = 33;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblSearch
             // 
@@ -209,15 +201,36 @@
             lblSearch.TabIndex = 32;
             lblSearch.Text = "Search";
             // 
+            // dgvCategories
+            // 
+            dgvCategories.AllowUserToAddRows = false;
+            dgvCategories.AllowUserToDeleteRows = false;
+            dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvCategories.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvCategories.Location = new Point(492, 158);
+            dgvCategories.Name = "dgvCategories";
+            dgvCategories.ReadOnly = true;
+            dgvCategories.RowHeadersWidth = 62;
+            dgvCategories.Size = new Size(666, 309);
+            dgvCategories.TabIndex = 34;
+            dgvCategories.RowHeaderMouseClick += dgvCategories_RowHeaderMouseClick_1;
+            // 
             // frmCategories
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(1193, 551);
+            Controls.Add(dgvCategories);
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
-            Controls.Add(dgvCategories);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
@@ -256,8 +269,8 @@
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
-        private DataGridView dgvCategories;
         private TextBox txtSearch;
         private Label lblSearch;
+        private DataGridView dgvCategories;
     }
 }
