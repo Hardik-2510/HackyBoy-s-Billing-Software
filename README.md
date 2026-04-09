@@ -35,7 +35,6 @@
 | **Framework** | .NET Framework (Windows Forms) |
 | **Database** | Microsoft SQL Server (T-SQL) |
 | **Data Access** | ADO.NET |
-| **UI Components**| Guna UI Framework |
 
 ---
 
