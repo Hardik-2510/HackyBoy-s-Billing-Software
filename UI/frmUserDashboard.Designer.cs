@@ -39,6 +39,7 @@
             lblUser = new Label();
             pnlFooter = new Panel();
             lblFooter = new Label();
+            ealerAndCustomerToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             pnlFooter.SuspendLayout();
             SuspendLayout();
@@ -46,7 +47,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { purchaseToolStripMenuItem, salesFormsToolStripMenuItem, inventoryToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { purchaseToolStripMenuItem, salesFormsToolStripMenuItem, inventoryToolStripMenuItem, ealerAndCustomerToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1701, 33);
@@ -145,6 +146,13 @@
             lblFooter.TabIndex = 0;
             lblFooter.Text = "Developed By Hardik Patel ( HackyBoy )";
             // 
+            // ealerAndCustomerToolStripMenuItem
+            // 
+            ealerAndCustomerToolStripMenuItem.Name = "ealerAndCustomerToolStripMenuItem";
+            ealerAndCustomerToolStripMenuItem.Size = new Size(198, 29);
+            ealerAndCustomerToolStripMenuItem.Text = "Dealer And Customer";
+            ealerAndCustomerToolStripMenuItem.Click += DealerAndCustomerToolStripMenuItem_Click;
+            // 
             // frmUserDashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -185,5 +193,6 @@
         private Label lblUser;
         private Panel pnlFooter;
         private Label lblFooter;
+        private ToolStripMenuItem ealerAndCustomerToolStripMenuItem;
     }
 }

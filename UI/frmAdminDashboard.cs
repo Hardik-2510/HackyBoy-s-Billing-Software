@@ -31,5 +31,17 @@ namespace Billing_Software
             frmCategories category = new frmCategories();
             category.Show();
         }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProducts products = new frmProducts();
+            products.Show();
+        }
+
+        private void dealerAndCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDeaCust DeaCust = new frmDeaCust();
+            DeaCust.Show();
+        }
     }
 }

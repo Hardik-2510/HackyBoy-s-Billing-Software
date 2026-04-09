@@ -28,5 +28,11 @@ namespace Billing_Software
         {
             lblLoggedInUser.Text = frmLogin.LoggedIn;
         }
+
+        private void DealerAndCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDeaCust DeaCust = new frmDeaCust();
+            DeaCust.Show();
+        }
     }
 }

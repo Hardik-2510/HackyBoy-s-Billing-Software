@@ -206,6 +206,12 @@
             dgvCategories.AllowUserToAddRows = false;
             dgvCategories.AllowUserToDeleteRows = false;
             dgvCategories.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategories.DefaultCellStyle.BackColor = SystemColors.ControlDark;
+            dgvCategories.DefaultCellStyle.ForeColor = SystemColors.ControlLight;
+
+            // Leave the selection colors as they are, since they are correct
+            dgvCategories.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            dgvCategories.DefaultCellStyle.SelectionForeColor = SystemColors.HighlightText;
             dgvCategories.Location = new Point(492, 158);
             dgvCategories.Name = "dgvCategories";
             dgvCategories.ReadOnly = true;

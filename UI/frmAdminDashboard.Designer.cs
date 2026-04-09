@@ -43,6 +43,7 @@
             lblAppFName = new Label();
             label1 = new Label();
             label2 = new Label();
+            dealerAndCustomerToolStripMenuItem = new ToolStripMenuItem();
             pnlFooter.SuspendLayout();
             menuStripTop.SuspendLayout();
             SuspendLayout();
@@ -79,7 +80,7 @@
             // menuStripTop
             // 
             menuStripTop.ImageScalingSize = new Size(24, 24);
-            menuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem, inventoryToolStripMenuItem, transactionsToolStripMenuItem });
+            menuStripTop.Items.AddRange(new ToolStripItem[] { usersToolStripMenuItem, categoryToolStripMenuItem, productsToolStripMenuItem, dealerAndCustomerToolStripMenuItem, inventoryToolStripMenuItem, transactionsToolStripMenuItem });
             menuStripTop.Location = new Point(0, 0);
             menuStripTop.Name = "menuStripTop";
             menuStripTop.Size = new Size(1478, 33);
@@ -105,6 +106,7 @@
             productsToolStripMenuItem.Name = "productsToolStripMenuItem";
             productsToolStripMenuItem.Size = new Size(98, 29);
             productsToolStripMenuItem.Text = "Products";
+            productsToolStripMenuItem.Click += productsToolStripMenuItem_Click;
             // 
             // inventoryToolStripMenuItem
             // 
@@ -169,6 +171,13 @@
             label2.TabIndex = 7;
             label2.Text = "Eager To Learn Something New 📖";
             // 
+            // dealerAndCustomerToolStripMenuItem
+            // 
+            dealerAndCustomerToolStripMenuItem.Name = "dealerAndCustomerToolStripMenuItem";
+            dealerAndCustomerToolStripMenuItem.Size = new Size(198, 29);
+            dealerAndCustomerToolStripMenuItem.Text = "Dealer And Customer";
+            dealerAndCustomerToolStripMenuItem.Click += dealerAndCustomerToolStripMenuItem_Click;
+            // 
             // frmAdminDashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -213,5 +222,6 @@
         private Label lblAppFName;
         private Label label1;
         private Label label2;
+        private ToolStripMenuItem dealerAndCustomerToolStripMenuItem;
     }
 }
