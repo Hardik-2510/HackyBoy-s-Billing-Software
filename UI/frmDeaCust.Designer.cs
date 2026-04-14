@@ -34,7 +34,7 @@
             txtID = new TextBox();
             lblType = new Label();
             lblDeaCust = new Label();
-            comboBox1 = new ComboBox();
+            cmbType = new ComboBox();
             txtName = new TextBox();
             lblName = new Label();
             txtEmail = new TextBox();
@@ -118,15 +118,15 @@
             lblDeaCust.TabIndex = 13;
             lblDeaCust.Text = "Dea/Cust ID";
             // 
-            // comboBox1
+            // cmbType
             // 
-            comboBox1.Font = new Font("Franklin Gothic Medium Cond", 12F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Dealer", "Customer" });
-            comboBox1.Location = new Point(185, 130);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(340, 38);
-            comboBox1.TabIndex = 16;
+            cmbType.Font = new Font("Franklin Gothic Medium Cond", 12F);
+            cmbType.FormattingEnabled = true;
+            cmbType.Items.AddRange(new object[] { "Dealer", "Customer" });
+            cmbType.Location = new Point(185, 130);
+            cmbType.Name = "cmbType";
+            cmbType.Size = new Size(340, 38);
+            cmbType.TabIndex = 16;
             // 
             // txtName
             // 
@@ -245,6 +245,7 @@
             btnAdd.TabIndex = 34;
             btnAdd.Text = "ADD";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // textBox1
             // 
@@ -295,7 +296,7 @@
             Controls.Add(lblEmail);
             Controls.Add(txtName);
             Controls.Add(lblName);
-            Controls.Add(comboBox1);
+            Controls.Add(cmbType);
             Controls.Add(txtID);
             Controls.Add(lblType);
             Controls.Add(lblDeaCust);
@@ -320,7 +321,7 @@
         private TextBox txtID;
         private Label lblType;
         private Label lblDeaCust;
-        private ComboBox comboBox1;
+        private ComboBox cmbType;
         private TextBox txtName;
         private Label lblName;
         private TextBox txtEmail;
