@@ -46,12 +46,12 @@
             btnDelete = new Button();
             btnUpdate = new Button();
             btnAdd = new Button();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvDeaCust = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxClose).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDeaCust).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -233,6 +233,7 @@
             btnUpdate.TabIndex = 35;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
@@ -247,14 +248,14 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Font = new Font("Franklin Gothic Medium Cond", 12F);
-            textBox1.Location = new Point(632, 79);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(641, 35);
-            textBox1.TabIndex = 38;
+            txtSearch.Font = new Font("Franklin Gothic Medium Cond", 12F);
+            txtSearch.Location = new Point(632, 79);
+            txtSearch.Name = "txtSearch";
+            txtSearch.ReadOnly = true;
+            txtSearch.Size = new Size(641, 35);
+            txtSearch.TabIndex = 38;
             // 
             // label1
             // 
@@ -267,14 +268,14 @@
             label1.TabIndex = 37;
             label1.Text = "Search";
             // 
-            // dataGridView1
+            // dgvDeaCust
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(551, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(722, 369);
-            dataGridView1.TabIndex = 39;
+            dgvDeaCust.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDeaCust.Location = new Point(551, 133);
+            dgvDeaCust.Name = "dgvDeaCust";
+            dgvDeaCust.RowHeadersWidth = 62;
+            dgvDeaCust.Size = new Size(722, 369);
+            dgvDeaCust.TabIndex = 39;
             // 
             // frmDeaCust
             // 
@@ -282,8 +283,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             ClientSize = new Size(1293, 582);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
+            Controls.Add(dgvDeaCust);
+            Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
@@ -308,7 +309,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxClose).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDeaCust).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -333,8 +334,8 @@
         private Button btnDelete;
         private Button btnUpdate;
         private Button btnAdd;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dgvDeaCust;
     }
 }
